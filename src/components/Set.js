@@ -12,17 +12,20 @@ const Set = (props) => {
 	return (
 		<div>
 			{props.set ? (
-				<Card>
+				<Card style={{ 'height': '15vw' }}>
 					<CardContent>
 						<Typography gutterBottom variant="headline" component="h2">
 							{props.set.title}
+						</Typography>
+						<Typography component="p">
+							{props.set.description}
 						</Typography>
 					</CardContent>
 					<CardActions>
 						<Button variant="contained"
 							color="primary">
 							Learn now!
-            </Button>
+            			</Button>
 					</CardActions>
 				</Card>
 			) : null}

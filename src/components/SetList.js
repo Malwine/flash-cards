@@ -4,8 +4,16 @@ import Set from '../components/Set'
 
 class SetList extends Component {
 
-  state = {
-    sets: [{ title: "Learn German" }, { title: "Learn historic dates" }]
+  constructor(props) {
+    super(props);
+    this.state = {
+      sets: []
+    };
+  }
+
+  componentWillMount() {
+    const sets = JSON.parse(localStorage.getItem('sets'));
+    this.setState({ sets })
   }
 
   render() {
@@ -15,7 +23,7 @@ class SetList extends Component {
           <div>
             <Grid container spacing={24} style={{ padding: 24 }}>
               {this.state.sets.map(currentSet => (
-                <Grid item xs={12} sm={6} lg={4} xl={3}>
+                <Grid key={ currentSet.title } item xs={12} sm={6} lg={4} xl={3}>
                   <Set set={currentSet} />
                 </Grid>
               ))}
