@@ -1,36 +1,23 @@
-import React from 'react';
-import Card from '@material-ui/core/Card'
-import CardActions from '@material-ui/core/CardActions'
-import CardContent from '@material-ui/core/CardContent'
-import CardMedia from '@material-ui/core/CardMedia'
-import Button from '@material-ui/core/Button'
-import Typography from '@material-ui/core/Typography'
+import React, {Component} from 'react';
 
+class Set extends Component {
+  state = {
+    id: null
+  }
 
-const Set = (props) => {
+  componentDidMount() {
+    let id = this.props.match.params.set_id
+    this.setState({
+      id: id
+    })
+  }
 
-	return (
-		<div>
-			{props.set ? (
-				<Card style={{ 'height': '15vw' }}>
-					<CardContent>
-						<Typography gutterBottom variant="headline" component="h2">
-							{props.set.title}
-						</Typography>
-						<Typography component="p">
-							{props.set.description}
-						</Typography>
-					</CardContent>
-					<CardActions>
-						<Button variant="contained"
-							color="primary">
-							Learn now!
-            			</Button>
-					</CardActions>
-				</Card>
-			) : null}
-		</div>
-	)
+  render() {
+    return (
+      <div className='container'>
+        <h4>{this.state.id}</h4>
+      </div>
+    )
+  }
 }
-
 export default Set

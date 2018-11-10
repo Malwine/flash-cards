@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid'
-import Set from '../components/Set'
+import SetPreview from '../components/SetPreview'
 
 class SetList extends Component {
 
@@ -24,7 +24,7 @@ class SetList extends Component {
             <Grid container spacing={24} style={{ padding: 24 }}>
               {this.state.sets.map(currentSet => (
                 <Grid key={ currentSet.title } item xs={12} sm={6} lg={4} xl={3}>
-                  <Set set={currentSet} />
+                  <SetPreview set={currentSet} />
                 </Grid>
               ))}
             </Grid>
